@@ -1,0 +1,87 @@
+@import "variables";
+$grey-gradient : #dadada;
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+
+.loading-block{
+  display: block;
+  width: 100%;
+  /*background: linear-gradient(-45deg, $orange, $violet, $teal);*/
+  background: linear-gradient(-90deg, $grey-light, $grey-gradient);
+  background-size: 600% 600%;
+  -webkit-animation: Gradient 2s ease infinite;
+  -moz-animation: Gradient 2s ease infinite;
+  animation: Gradient 2s ease infinite;
+  height: 16px;
+  margin: 4px 0;
+  &-h3{
+    height: 22px;
+  }
+  &-text-small{
+    height:8px
+  }
+  &-text-medium{
+    height: 22px;
+  }
+  &-text-big{
+    height: 30px;
+  }
+  &-text-list{
+    &-item{
+      height: 12px;
+      &:nth-child(odd){
+        width: 90%;
+      }
+    }
+  }
+}
+
+.spinner {
+  text-align: center;
+}
+
+.spinner > div {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(-90deg, $grey-light, $grey-gradient);
+  background-size: 600% 600%;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both,Gradient 2s ease infinite;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both,Gradient 2s ease infinite;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+}

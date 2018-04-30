@@ -1,0 +1,79 @@
+@import "variables";
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.ng-touched.ng-valid {
+  @extend .is-valid;
+}
+
+.ng-touched.ng-invalid {
+  @extend .is-invalid;
+}
+
+.ui-switch {
+  display: inline-flex;
+  background-color: $blue;
+  border-radius: 20px;
+  margin: 0 8px;
+  height: 16px;
+  width: 36px;
+  position: relative;
+  &.is-animated{
+    .ui-button {
+      transition: margin ease-out .2s, border ease-in .2s
+    }
+  }
+  .ui-checkbox {
+    opacity: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 52px;
+    height: 22px;
+    margin: -2px 0 0 -5px;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .ui-button {
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin: 0px 24px 0px -6px;
+    background-color: $blue-light;
+    border-radius: 15px;
+    position: absolute;
+    top: -4px;
+  }
+
+  .ui-checkbox:checked + .ui-button {
+    margin: 0px 0px 0px 24px;
+  }
+}
+
+.ui-switch-container{
+  background: $white;
+  padding: 8px;
+  @include shadow();
+  ul,li,p{
+    margin: 0;
+  }
+}
+
+.bg-progressBar{
+  background-color: $blue-light;
+}
+
+
+.select-dropdown{
+  position: relative;
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .icon{
+    position: absolute;
+    right: 12px;
+    top: 8px;
+  }
+}

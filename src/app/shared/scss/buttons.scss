@@ -1,0 +1,10 @@
+.btn.btn-outline-info{
+  text-transform: uppercase;
+}
+
+
+.btn{
+  &:disabled{
+    cursor: not-allowed;
+  }
+}

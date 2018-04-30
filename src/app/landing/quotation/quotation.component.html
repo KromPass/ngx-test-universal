@@ -1,0 +1,9 @@
+<div class="container module text-center"  style="padding-top: 20px;" #elFormQuotation>
+  <button class="btn btn-success" (click)="onOtherLanguagesClick()" tabindex="3">Open ngx-chips</button>
+</div>
+
+<app-more-languages [(open)]="otherLanguageOpen"
+                    [(source)]="quotation.source.name"
+                    [(languagesSelected)] = "optionSelected"
+                    (selectionDone)="pushMultiple($event)"
+                    *ngIf="otherLanguageOpen && isBrowser"></app-more-languages>

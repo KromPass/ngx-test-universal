@@ -1,0 +1,11 @@
+@import "shared/scss/variables.scss";
+
+ul{
+  list-style: none;
+  display: inline-block;
+  width: 100%;
+  li{
+    display: inline-block;
+    margin: 8px 16px;
+  }
+}

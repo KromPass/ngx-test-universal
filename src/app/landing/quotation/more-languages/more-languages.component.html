@@ -1,0 +1,230 @@
+<div class="more-language" *ngIf="open">
+  <div class="search">
+    <div class="container-fluid">
+      <span class=" d-md-block d-none d-lg-block" (click)="onCloseLanguages()" id="close"><i class="fas fa-window-close"></i></span>
+      <span class=" d-block d-sm-block d-md-none" (click)="onCloseLanguages()" id="close"><i class="fas fa-window-close fa-2x"></i></span>
+      <div class="row align-items-center">
+        <div class=" col-lg-2 col-md-2 col-sm-12" id="from">
+          <span>From:</span> {{source}}
+        </div>
+        <div class="d-md-block d-none d-lg-block col-lg-1 col-md-1 col-sm-12 " id="to">To:</div>
+        <div class="d-block d-sm-block d-md-none col-lg-1 col-md-1 col-sm-12 " id="to-mb">To:
+          <span  *ngIf="languagesSelected.length > 1" > ({{languagesSelected.length}} languages) </span>
+        </div>
+        <div class="col-lg-7 col-md-6" id="text-before">
+          <tag-input
+            [ngClass]="( languagesSelected.length > 0)?'focused':'not-focused'"
+            tabindex="1"
+            [(ngModel)]='languagesSelected'
+            [maxItems]='20'
+            [editable]='true'
+            [theme]="'dubbing-theme'"
+            [placeholder]="''"
+            [secondaryPlaceholder] ="'CHOOSE LANGUAGES'"
+            [modelAsStrings]="true"
+            [onlyFromAutocomplete]="true"
+          >
+            <tag-input-dropdown
+              [autocompleteItems]="languages"
+              [matchingFn]="matchingFn"
+              [limitItemsTo] = '5'
+            ></tag-input-dropdown>
+          </tag-input>
+        </div>
+        <div class="col-lg-2 col-md-3 d-md-block d-none d-lg-block">
+          <button id="btn-confirm"
+                  class="btn"
+                  tabindex="2"
+                  (click)="onConfirmLanguages()">Confirm </button>
+          <button id="btn-reset" class="btn"  tabindex="3" (click)="onResetLanguages()">Reset All </button>
+        </div>
+      </div>
+
+      <div class="row align-items-center preset">
+        <div class="col-lg-3 col-md-3"></div>
+        <div class="col-lg-3 col-md-2">
+         <p id="text-left" *ngIf="languagesSelected.length > 1"> Languages <span>( {{languagesSelected.length}} )</span> </p>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul id="preset-items">
+            <li id="select">Select: </li>
+            <li (click)="onAddTop5()">Top 5</li>
+            <li (click)="onAddTop10()">Top 10</li>
+            <li (click)="onAddTop20()">Top 20</li>
+          </ul>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <div class="row preset-mobile">
+        <div class="row">
+          <div class="col-12">
+            <ul id="preset-items-mb">
+              <li id="select-mb">Select: </li>
+              <li (click)="onAddTop5()">Top 5</li>
+              <li (click)="onAddTop10()">Top 10</li>
+              <li (click)="onAddTop20()">Top 20</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <button id="btn-reset" class="btn" (click)="onResetLanguages()"> Reset All </button>
+            <button id="btn-confirm" class="btn" (click)="onConfirmLanguages()"> Confirm </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="languages">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2">
+          <ul>
+             <li class="alphabet">A-B</li>
+             <li *ngFor="let language of  languages.slice(0,16)" class="languages-item"
+                 (click)="onAddToSelectedLanguages(language)"
+                 [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+               <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+             </li>
+            <li class="alphabet">C-D</li>
+            <li *ngFor="let language of  languages.slice(16,24)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-2">
+          <ul>
+            <li *ngFor="let language of  languages.slice(24,28)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+            <li class="alphabet">E-F</li>
+            <li *ngFor="let language of  languages.slice(28,36)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+            <li class="alphabet">G-H</li>
+            <li *ngFor="let language of  languages.slice(36,48)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-2">
+          <ul>
+            <li *ngFor="let language of  languages.slice(48,50)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+            <li class="alphabet">I-J</li>
+            <li *ngFor="let language of  languages.slice(50,58)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+            <li class="alphabet">K-L</li>
+            <li *ngFor="let language of  languages.slice(58,71)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-2">
+          <ul>
+            <li *ngFor="let language of  languages.slice(71,73)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="(languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+            <li class="alphabet">M-N</li>
+            <li *ngFor="let language of  languages.slice(73,87)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+            <li class="alphabet">P-Q</li>
+            <li *ngFor="let language of  languages.slice(87,93)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-2">
+          <ul>
+            <li *ngFor="let language of  languages.slice(93,97)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+            <li class="alphabet">R-S</li>
+            <li *ngFor="let language of  languages.slice(97,114)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-2">
+          <ul>
+            <li class="alphabet">T-U</li>
+            <li *ngFor="let language of  languages.slice(114,129)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+            <li class="alphabet">V - W - X - Y - Z</li>
+            <li *ngFor="let language of  languages.slice(129,140)" class="languages-item"
+                (click)="onAddToSelectedLanguages(language)"
+                [ngClass]="( languagesSelected.includes(language))?'selected':''"> {{language}}
+              <span *ngIf="languagesSelected.includes(language)">
+                 <i class="fas fa-window-close "></i>
+               </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

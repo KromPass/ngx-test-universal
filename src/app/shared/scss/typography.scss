@@ -1,0 +1,99 @@
+@import "variables";
+
+h1{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2{
+  font-size: 1.5rem;
+}
+
+h3{
+  font-size: 1.25rem;
+}
+
+p{
+  font-size: 0.95rem;
+}
+
+label{
+  font-size: 0.90rem;
+  font-weight: 700;
+}
+
+b{
+  font-weight: 600;
+}
+
+.small-text{
+  font-size: 0.90em;
+  font-weight: 300;
+}
+.medium-text{
+  font-size: 1.375em;
+}
+.big-text{
+  font-size: 1.875em;
+}
+
+.small-grey-text{
+  font-size: 0.850em;
+  font-weight: 300;
+  color: $grey;
+}
+
+.grey-text{
+  font-weight: 300;
+  color: $grey;
+}
+
+.blue-text{
+  color: $blue;
+}
+
+.blue-light-text{
+  color: $blue-light;
+}
+
+.blue-link{
+  font-weight: 300;
+  color: $blue;
+  &-small{
+    @extend .blue-link;
+    font-size: 0.785em;
+  }
+}
+
+.success-txt{
+  color: $green-light!important;
+  font-weight: bold;
+  margin: 0px;
+}
+
+html{
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: $sm ) {
+  h3{
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+  #quote{
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: $md ) {
+  html {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: $lg) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+

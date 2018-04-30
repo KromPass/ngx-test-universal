@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+
+/* COLORS */
+$white :                      #ffffff;
+$black:                       #000000;
+$red:                         #dc3545;
+$blue :                       #005da2;
+$dark-blue:                   #003268;
+$translated-deep-blue:        #003364;
+$blue-light:                  #4d9edb;
+$multiple-blue:               #7290b7;
+$grey:                        #878787;
+$separator-grey:              #d6d6d6;
+$grey-dark:                   #565656;
+$grey-light:                  #f4f4f4;
+$grey-light-2:                #dadada;
+$green-light:                 #fbfbfb;
+$green:                       #28a745;
+$grey-background:             #f5f7f9;
+$grey-shadow:                 #e0e0e0;
+$orange:                      #f08100;
+$violet:                      #811f81;
+$teal:                        #007f87;
+$dark-grey:                   #727272;
+$delivery-g:                  #585858;
+$success:                     #28a745;
+$disabled:                    #8fe2a9;
+$multiple-blue-focused:       #c4cde4;
+
+/* FONTS */
+$font-family-base:            'Montserrat', sans-serif;
+
+/* OTHER */
+$enable-rounded :             false;
+/*$border-radius:               0px !default;
+$border-radius-lg:            0px !default;
+$border-radius-sm:            0px !default;*/
+
+/* BREAKPOINT */
+
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
